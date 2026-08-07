@@ -1,0 +1,60 @@
+# Flatpak manifest for Vellum.
+#
+# Build:  packaging/build-flatpak.sh
+
+id: us.hagreli.Vellum
+
+# GNOME 50 is the first runtime carrying libadwaita 1.9 (AdwToggleGroup,
+# AdwShortcutsDialog) and GTK 4.22, which this is compiled against.
+runtime: org.gnome.Platform
+runtime-version: '50'
+sdk: org.gnome.Sdk
+
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+
+command: vellum
+
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=dri
+
+  # Deliberately absent:
+  #   --filesystem=host   documents arrive through the file portal, which is
+  #                       what GtkFileDialog uses inside the sandbox. The app
+  #                       gets exactly the files you chose and nothing else.
+  #   --share=network     nothing here talks to the network, and if that ever
+  #                       changes this line is where the decision becomes
+  #                       visible.
+
+build-options:
+  append-path: /usr/lib/sdk/rust-stable/bin
+  env:
+    CARGO_HOME: /run/build/vellum/cargo
+
+modules:
+  - name: vellum
+    buildsystem: simple
+    build-commands:
+      - cargo --offline fetch --manifest-path Cargo.toml --verbose
+      - cargo --offline build --release --locked
+      - install -Dm755 target/release/vellum /app/bin/vellum
+      - install -Dm644 data/us.hagreli.Vellum.desktop
+          /app/share/applications/us.hagreli.Vellum.desktop
+      - install -Dm644 data/us.hagreli.Vellum.metainfo.xml
+          /app/share/metainfo/us.hagreli.Vellum.metainfo.xml
+      - install -Dm644 data/us.hagreli.Vellum.gschema.xml
+          /app/share/glib-2.0/schemas/us.hagreli.Vellum.gschema.xml
+      - glib-compile-schemas /app/share/glib-2.0/schemas
+      - install -Dm644 data/icons/hicolor/scalable/apps/us.hagreli.Vellum.svg
+          /app/share/icons/hicolor/scalable/apps/us.hagreli.Vellum.svg
+      - install -Dm644 data/icons/hicolor/symbolic/apps/us.hagreli.Vellum-symbolic.svg
+          /app/share/icons/hicolor/symbolic/apps/us.hagreli.Vellum-symbolic.svg
+    sources:
+      - type: dir
+        path: ../..
+      # Generated from Cargo.lock by build-flatpak.sh. Flathub builds with the
+      # network off, so every crate has to arrive here with a checksum.
+      - cargo-sources.json

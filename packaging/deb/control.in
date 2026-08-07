@@ -1,0 +1,16 @@
+Package: vellum
+Version: @VERSION@
+Section: editors
+Priority: optional
+Architecture: @ARCH@
+Depends: @DEPENDS@
+Maintainer: Matthew Hagrelius <matthew@hagreli.us>
+Homepage: https://github.com/mhagrelius/vellum
+Description: Markdown reader and editor for the GNOME desktop
+ Vellum shows a Markdown document as it would be published, while it is
+ still the file you are editing. The syntax characters are hidden until the
+ cursor reaches them, so the document reads as prose and stays editable.
+ .
+ Eight reading styles — Adwaita, Newsprint, Academic, Sepia, Book, Terminal,
+ Contrast and Typewriter — each set the whole page: face, measure, leading,
+ heading treatment, rules and colour, in light and dark.

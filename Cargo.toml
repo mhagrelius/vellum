@@ -1,0 +1,39 @@
+[workspace]
+members = ["core"]
+
+[package]
+name = "vellum"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "A Markdown reader and editor for the GNOME desktop"
+license = "GPL-3.0-or-later"
+
+[[bin]]
+name = "vellum"
+path = "src/main.rs"
+
+# A library as well as a binary, so integration tests and examples can drive the
+# real application rather than a copy of it.
+[lib]
+name = "vellum"
+path = "src/lib.rs"
+
+[dependencies]
+# The reading styles, the outline, the document, the statistics and the
+# formatting commands. Links no UI toolkit — it is the half a shell on another
+# platform keeps, which is the whole reason it is a crate rather than a module.
+# Re-exported from src/lib.rs as `vellum::model`.
+vellum-core = { path = "core" }
+gtk = { package = "gtk4", version = "0.11", features = ["v4_22"] }
+adw = { package = "libadwaita", version = "0.9", features = ["v1_9"] }
+# Direct dependency purely to raise the API level: gtk4 pulls gio in at a lower
+# one, and the file-open command line path wants v2_80.
+gio = { version = "0.22", features = ["v2_80"] }
+# The Markdown scanner, shared with Stickies and Brain. The app needs it in its
+# own right — the live-preview view asks it which characters are syntax on every
+# keystroke — so it is a dependency of both halves rather than re-exported.
+quill = { git = "https://github.com/mhagrelius/quill", rev = "e28603237916589af22314acbb098849fd5da8fa" }
+
+[dev-dependencies]
+tempfile = "3"

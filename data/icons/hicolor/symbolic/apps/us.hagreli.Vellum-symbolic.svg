@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <!-- A page whose first line is a heading and whose rest is body copy: the
+       one detail that still reads at 16px is the size difference. -->
+  <path fill="currentColor"
+        d="M3.5 1A1.5 1.5 0 0 0 2 2.5v11A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5v-11A1.5 1.5 0 0 0 12.5 1Zm0 1h9a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5Z"/>
+  <path fill="currentColor" d="M4.5 3.75h5v1.75h-5z"/>
+  <path fill="currentColor" d="M4.5 7h7v1h-7zm0 2.25h7v1h-7zm0 2.25h4v1h-4z"/>
+</svg>

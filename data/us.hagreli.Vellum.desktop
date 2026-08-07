@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Vellum
+GenericName=Markdown Reader
+Comment=Read and edit Markdown in eight typographic styles
+Categories=Office;WordProcessor;GNOME;GTK;
+Keywords=markdown;md;notes;reader;editor;typography;writing;
+Exec=vellum %F
+Icon=us.hagreli.Vellum
+Terminal=false
+StartupNotify=true
+# Must match the application ID so the shell associates windows with this entry.
+StartupWMClass=us.hagreli.Vellum
+DBusActivatable=true
+MimeType=text/markdown;text/x-markdown;text/plain;

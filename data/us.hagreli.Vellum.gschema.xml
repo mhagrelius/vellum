@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="us.hagreli.Vellum" path="/us/hagreli/Vellum/">
+
+    <key name="reading-style" type="s">
+      <default>'newsprint'</default>
+      <summary>The active reading style</summary>
+      <description>
+        One of the bundled style ids. An unrecognised value falls back to the
+        default rather than stopping the app, so a downgrade is survivable.
+      </description>
+    </key>
+
+    <key name="appearance" type="s">
+      <choices>
+        <choice value="system"/>
+        <choice value="light"/>
+        <choice value="dark"/>
+      </choices>
+      <default>'system'</default>
+      <summary>Light, dark, or whatever the desktop is set to</summary>
+    </key>
+
+    <key name="view-mode" type="s">
+      <choices>
+        <choice value="live"/>
+        <choice value="source"/>
+        <choice value="reading"/>
+      </choices>
+      <default>'reading'</default>
+      <summary>How much Markdown syntax is shown</summary>
+      <description>
+        Opening a document shows it rendered. Live mode reveals the syntax of
+        whatever construct the cursor is in, which is what you want while
+        writing and not what you want on the first screen of a document you
+        opened to read.
+      </description>
+    </key>
+
+    <key name="show-outline" type="b">
+      <default>true</default>
+      <summary>Whether the heading outline is shown</summary>
+    </key>
+
+    <key name="window-width" type="i">
+      <default>1100</default>
+      <summary>Window width</summary>
+    </key>
+
+    <key name="window-height" type="i">
+      <default>780</default>
+      <summary>Window height</summary>
+    </key>
+
+    <key name="window-maximized" type="b">
+      <default>false</default>
+      <summary>Whether the window was maximised when it was last closed</summary>
+    </key>
+
+  </schema>
+</schemalist>

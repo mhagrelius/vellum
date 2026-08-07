@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>us.hagreli.Vellum</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <name>Vellum</name>
+  <summary>Read and edit Markdown in eight typographic styles</summary>
+
+  <description>
+    <p>
+      Vellum shows a Markdown document as it would be published, while it is
+      still the file you are editing. There is one view, not two: the syntax
+      characters are hidden until the cursor reaches them, so the document reads
+      as prose and stays editable in the same breath.
+    </p>
+    <ul>
+      <li>Eight reading styles — Adwaita, Newsprint, Academic, Sepia, Book, Terminal, Contrast and Typewriter — each a complete typographic system in light and dark</li>
+      <li>A live mode that reveals only the Markdown under the cursor, a source mode that shows all of it, and a reading mode that shows none</li>
+      <li>A heading outline that follows you down the page</li>
+      <li>Formatting from the right-click menu or the keyboard, written as Markdown into the file</li>
+      <li>Word count and reading time as you write</li>
+    </ul>
+    <p>
+      Your document stays a plain Markdown file throughout. Nothing is stored
+      beside it, and nothing is added to it that another editor would not
+      understand.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">us.hagreli.Vellum.desktop</launchable>
+
+  <developer id="us.hagreli">
+    <name>Matthew Hagrelius</name>
+  </developer>
+
+  <url type="homepage">https://github.com/mhagrelius/vellum</url>
+  <url type="bugtracker">https://github.com/mhagrelius/vellum/issues</url>
+
+  <categories>
+    <category>Office</category>
+    <category>WordProcessor</category>
+  </categories>
+
+  <provides>
+    <mediatype>text/markdown</mediatype>
+    <mediatype>text/x-markdown</mediatype>
+  </provides>
+
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+  </supports>
+
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+
+  <content_rating type="oars-1.1"/>
+
+  <releases>
+    <release version="0.1.0" date="2026-08-06">
+      <description>
+        <p>First release.</p>
+      </description>
+    </release>
+  </releases>
+</component>

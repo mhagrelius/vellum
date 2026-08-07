@@ -1,0 +1,8 @@
+/target
+/dist
+/.flatpak-build
+# Generated from Cargo.lock by packaging/build-flatpak.sh
+/packaging/flatpak/cargo-sources.json
+
+# Per-machine Claude Code settings. `.claude/settings.json` is shared; this is not.
+/.claude/settings.local.json

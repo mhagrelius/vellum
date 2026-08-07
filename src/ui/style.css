@@ -1,0 +1,62 @@
+/* Only what libadwaita has no style class for.
+ *
+ * Every colour here is a platform variable, never a hex value: the chrome
+ * follows the desktop's theme and accent, and only the document carries a
+ * reading style of its own. */
+
+/* The outline pane reads as chrome beside the page, so it takes the sidebar
+ * background rather than the view background a list would get by default. */
+.outline-sidebar {
+  background-color: var(--sidebar-bg-color);
+  color: var(--sidebar-fg-color);
+}
+
+.outline-panel list.navigation-sidebar {
+  background-color: transparent;
+  padding: 6px;
+}
+
+.outline-panel list.navigation-sidebar > row {
+  min-height: 30px;
+  padding: 2px 8px;
+  border-radius: 7px;
+}
+
+/* The active section gets a bar in its gutter as well as a fill, so the row it
+ * is on is findable at a glance down a long outline. */
+.outline-panel list.navigation-sidebar > row:selected {
+  box-shadow: inset 3px 0 0 var(--accent-color);
+}
+
+/* The status bar: quiet, one line, and never taller than the text in it. */
+.status-bar {
+  min-height: 26px;
+  border-top: 1px solid var(--headerbar-shade-color);
+}
+
+/* The reading-style grid. The cards are flat buttons; what marks the chosen one
+ * is a ring in the accent colour, which needs the padding to sit in.
+ *
+ * Not scoped under `.style-popover`: the picker's contents are an ordinary box,
+ * and the preview harness lifts them out of the popover to photograph them. A
+ * ring that only appears when the widget happens to be inside a popover is a
+ * ring that cannot be reviewed. */
+.style-card {
+  padding: 3px;
+  border-radius: 9px;
+}
+
+.style-card.selected {
+  box-shadow: inset 0 0 0 2px var(--accent-color);
+}
+
+.style-popover flowboxchild {
+  padding: 0;
+}
+
+/* The page draws its own background and its own rules, so nothing in the theme
+ * may paint over it — see `DocumentView::snapshot`. */
+textview.vellum-document,
+textview.vellum-document > text {
+  background: none;
+}

@@ -1,0 +1,21 @@
+[package]
+name = "vellum-core"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "Vellum's reading styles, outline, statistics and formatting — nothing here draws"
+license = "GPL-3.0-or-later"
+
+[lib]
+name = "vellum_core"
+path = "src/lib.rs"
+
+[dependencies]
+# The scanner every derived view of a document comes from: the outline, the
+# block decorations, the word count, and the offsets a formatting command
+# rewrites. Pinned to the same revision the app uses — two scans of one document
+# that disagree would put a heading in the sidebar that is not in the text.
+quill = { git = "https://github.com/mhagrelius/quill", rev = "e28603237916589af22314acbb098849fd5da8fa" }
+
+[dev-dependencies]
+tempfile = "3"
